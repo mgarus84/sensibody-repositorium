@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warsztaty SENSI BODY dla nauczycieli | Emocje przez ruch</title>
+    <meta name="description" content="Praktyczny warsztat dla nauczycieli i specjalistów. Naucz się prowadzić ćwiczenia emocjonalno-ruchowe z dziećmi. Certyfikat, materiały, gotowe scenariusze.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-cream: #FDF8F3;
+            --color-peach: #F4A896;
+            --color-peach-light: #FAD4CB;
+            --color-mint: #A8D5D8;
+            --color-mint-light: #D4ECED;
+            --color-sage: #8FBC8F;
+            --color-text: #3D3D3D;
+            --color-text-light: #6B6B6B;
+            --color-gold: #D4A853;
+            --color-white: #FFFFFF;
+            --font-display: 'Nunito', sans-serif;
+            --font-body: 'Lora', serif;
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
+            --radius-soft: 20px;
+            --radius-pill: 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-cream);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 18px 36px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-peach) 0%, #E8927F 100%);
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(244, 168, 150, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(244, 168, 150, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--color-white);
+            color: var(--color-text);
+            border: 2px solid var(--color-mint);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-mint-light);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(253, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 0;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--color-peach);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-cta {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            background: var(--color-peach);
+            color: white;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: #E8927F;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--color-mint-light) 0%, transparent 70%);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--color-peach-light) 0%, transparent 70%);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-white);
+            padding: 10px 20px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--color-sage);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-soft);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero h1 {
+            color: var(--color-text);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            color: var(--color-peach);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--color-text-light);
+            margin-bottom: 32px;
+            max-width: 600px;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--color-peach);
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 24px;
+            }
+            .hero-stat-number {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--color-white);
+            position: relative;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .problem-text h2 span {
+            color: var(--color-peach);
+        }
+
+        .problem-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+
+        .problem-list li svg {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--color-peach);
+            margin-top: 2px;
+        }
+
+        .problem-visual {
+            background: linear-gradient(135deg, var(--color-mint-light) 0%, var(--color-peach-light) 100%);
+            border-radius: var(--radius-soft);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .problem-quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .problem-quote-author {
+            margin-top: 20px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        /* Solution Section */
+        .solution {
+            background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 100%);
+        }
+
+        .solution-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .solution-header h2 span {
+            color: var(--color-mint);
+            position: relative;
+        }
+
+        .method-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .method-steps {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .method-step {
+            background: var(--color-white);
+            border-radius: var(--radius-soft);
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .method-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .method-step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--color-peach-light) 0%, var(--color-mint-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--color-text);
+        }
+
+        .method-step h3 {
+            color: var(--color-text);
+            font-size: 1.2rem;
+        }
+
+        .method-step p {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            margin-bottom: 0;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--color-white);
+        }
+
+        .benefits-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .benefits-header h2 span {
+            color: var(--color-peach);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .benefit-card {
+            background: var(--color-cream);
+            border-radius: var(--radius-soft);
+            padding: 28px;
+            display: flex;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateX(5px);
+        }
+
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            background: var(--color-white);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .benefit-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--color-peach);
+        }
+
+        .benefit-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .benefit-content p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 0;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, var(--color-mint-light) 0%, var(--color-cream) 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--color-peach-light) 0%, var(--color-mint-light) 100%);
+            border-radius: var(--radius-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--color-text-light);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .about-text h2 span {
+            color: var(--color-peach);
+        }
+
+        .about-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .about-credentials {
+                justify-content: center;
+            }
+        }
+
+        .credential-tag {
+            background: var(--color-white);
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--color-text);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            background: var(--color-white);
+        }
+
+        .testimonial-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
+            border-radius: var(--radius-soft);
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-family: var(--font-display);
+            font-size: 6rem;
+            color: var(--color-peach-light);
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--color-text);
+        }
+
+        .testimonial-role {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-mint-light) 100%);
+        }
+
+        .pricing-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .pricing-header h2 span {
+            color: var(--color-peach);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pricing-card {
+            background: var(--color-white);
+            border-radius: var(--radius-soft);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--color-peach);
+        }
+
+        .pricing-card.featured::before {
+            content: 'POPULARNE';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--color-peach);
+            color: white;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.7rem;
+            padding: 6px 40px;
+            transform: rotate(45deg);
+        }
+
+        .pricing-label {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .pricing-price {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 3rem;
+            color: var(--color-text);
+            line-height: 1;
+        }
+
+        .pricing-price span {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .pricing-original {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            text-decoration: line-through;
+            margin-top: 8px;
+        }
+
+        .pricing-period {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-top: 8px;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--color-sage);
+        }
+
+        /* Workshop Details */
+        .workshop-details {
+            background: var(--color-cream);
+            border-radius: var(--radius-soft);
+            padding: 30px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .workshop-details h3 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .detail-item {
+            text-align: center;
+        }
+
+        .detail-item svg {
+            width: 32px;
+            height: 32px;
+            color: var(--color-peach);
+            margin-bottom: 8px;
+        }
+
+        .detail-item strong {
+            display: block;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .detail-item span {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        /* B2B Section */
+        .b2b {
+            background: var(--color-white);
+        }
+
+        .b2b-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--color-mint-light) 0%, var(--color-cream) 100%);
+            border-radius: var(--radius-soft);
+            padding: 50px;
+            text-align: center;
+        }
+
+        .b2b-card h2 span {
+            color: var(--color-mint);
+        }
+
+        .b2b-benefits {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .b2b-benefit {
+            background: var(--color-white);
+            padding: 12px 20px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .b2b-benefit svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-sage);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: var(--color-white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-peach);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Trust Section */
+        .trust {
+            background: var(--color-cream);
+            padding: 40px 0;
+        }
+
+        .trust-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        .trust-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-sage);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-text);
+            color: var(--color-white);
+            padding: 50px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+        }
+
+        .footer-brand h3 {
+            font-size: 1.4rem;
+            color: var(--color-peach);
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            color: var(--color-white);
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-peach);
+        }
+
+        .footer-eu {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-eu {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .footer-eu-flag {
+            width: 60px;
+            height: 40px;
+            background: #003399;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFCC00;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .footer-eu p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--color-white);
+            border-radius: var(--radius-soft);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--color-cream);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--color-peach-light);
+        }
+
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal h2 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">
+                <svg viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="45" fill="#F4A896"/>
+                    <ellipse cx="35" cy="40" rx="8" ry="10" fill="#3D3D3D"/>
+                    <ellipse cx="65" cy="40" rx="8" ry="10" fill="#3D3D3D"/>
+                    <path d="M40 60 Q50 70 60 60" stroke="#3D3D3D" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M25 25 L35 35" stroke="#3D3D3D" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M75 25 L65 35" stroke="#3D3D3D" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+                SENSI BODY
+            </a>
+            <a href="#pricing" class="nav-cta">Zapisz się</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                    Innowacja społeczna wspierana przez Unię Europejską
+                </div>
+                <h1>Naucz się pomagać dzieciom <span>regulować emocje przez ciało</span></h1>
+                <p class="hero-subtitle">Praktyczny 6-godzinny warsztat dla nauczycieli i specjalistów. Gotowe narzędzia, które możesz wykorzystać już następnego dnia w pracy z dziećmi.</p>
+                <div class="hero-cta-group">
+                    <a href="#pricing" class="btn btn-primary">
+                        Zarezerwuj miejsce
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#solution" class="btn btn-secondary">Dowiedz się więcej</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">80+</div>
+                        <div class="hero-stat-label">dzieci w pilotażu</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">6h</div>
+                        <div class="hero-stat-label">praktycznej nauki</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">30</div>
+                        <div class="hero-stat-label">gotowych ćwiczeń</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem section">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-text animate-on-scroll">
+                    <h2>Dzieci <span>czują</span>, ale nie wiedzą <span>co z tym zrobić</span></h2>
+                    <p>25-35% dzieci w wieku wczesnoszkolnym ma trudności z regulacją emocji. Napięcie, stres i frustracja odkładają się w ich ciałach, prowadząc do problemów z koncentracją, konfliktów w klasie i dolegliwości psychosomatycznych.</p>
+                    <ul class="problem-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 8v4M12 16h.01"/>
+                            </svg>
+                            <span>Brak narzędzi do łączenia emocji z ciałem</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 8v4M12 16h.01"/>
+                            </svg>
+                            <span>Napięcia psychosomatyczne przez stres szkolny</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 8v4M12 16h.01"/>
+                            </svg>
+                            <span>Nieumiejętność samoregulacji emocjonalno-ruchowej</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="problem-visual animate-on-scroll">
+                    <p class="problem-quote">„Emocje są ruchem – powstają w naszym ciele, zanim zdążymy je pomyśleć."</p>
+                    <p class="problem-quote-author">— Joachim Bauer, neurobiolog</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution section" id="solution">
+        <div class="container">
+            <div class="solution-header animate-on-scroll">
+                <h2>Metoda <span>SENSI BODY</span></h2>
+                <p>Pierwszy w Polsce system łączący fizjoterapię dziecięcą z edukacją emocjonalną. Prosta sekwencja, którą każde dziecko może zrozumieć i zastosować.</p>
+            </div>
+            <div class="method-steps">
+                <div class="method-step animate-on-scroll">
+                    <div class="method-step-number">1</div>
+                    <h3>Czuję ciałem</h3>
+                    <p>Dziecko uczy się rozpoznawać, gdzie w ciele odczuwa emocję i jak silna jest ta emocja.</p>
+                </div>
+                <div class="method-step animate-on-scroll">
+                    <div class="method-step-number">2</div>
+                    <h3>Ruszam ciałem</h3>
+                    <p>Wykonuje krótkie ćwiczenie ruchowe dopasowane do emocji – 3-5 minut wystarczy.</p>
+                </div>
+                <div class="method-step animate-on-scroll">
+                    <div class="method-step-number">3</div>
+                    <h3>Sprawdzam siebie</h3>
+                    <p>Refleksja nad zmianą: „Co czuję teraz? Co zmieniło się w moim ciele?"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits section" id="benefits">
+        <div class="container">
+            <div class="benefits-header animate-on-scroll">
+                <h2>Co <span>zyskasz</span> na warsztacie?</h2>
+                <p>Wszystko, czego potrzebujesz, żeby wprowadzić metodę SENSI BODY do swojej pracy z dziećmi.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.5 4h-5L7 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2h-3l-2.5-3z"/>
+                            <circle cx="12" cy="13" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Praktyczne umiejętności</h3>
+                        <p>Nauczysz się prowadzić ćwiczenia emocjonalno-ruchowe. Doświadczysz ich na sobie, zanim pokażesz dzieciom.</p>
+                    </div>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Gotowe scenariusze</h3>
+                        <p>Otrzymasz komplet materiałów do natychmiastowego użycia: karty emocji, scenariusze zajęć, arkusze obserwacji.</p>
+                    </div>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="5"/>
+                            <path d="M3 21v-2a7 7 0 0114 0v2"/>
+                            <path d="M16 11l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Certyfikat ukończenia</h3>
+                        <p>Oficjalny certyfikat potwierdzający Twoje kompetencje w metodzie SENSI BODY.</p>
+                    </div>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Materiały do pobrania</h3>
+                        <p>Dostęp do filmików instruktażowych z QR kodami i przewodnika dla nauczyciela w wersji cyfrowej.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image animate-on-scroll">
+                    [Zdjęcie Eli]
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <h2>Poznaj <span>prowadzącą</span></h2>
+                    <p>Ela to fizjoterapeutka dziecięca i nauczycielka edukacji wczesnoszkolnej z 10-letnim doświadczeniem w pracy z dziećmi. Autorka innowacji społecznej SENSI BODY, która łączy wiedzę z fizjoterapii, pedagogiki i psychologii emocji.</p>
+                    <p>Projekt SENSI BODY powstał z obserwacji, że dzieci potrzebują prostych narzędzi, by zrozumieć co dzieje się w ich ciałach, gdy przeżywają silne emocje. Ela wierzy, że regulacja emocji zaczyna się od ciała, a nie od słów.</p>
+                    <div class="about-credentials">
+                        <span class="credential-tag">Fizjoterapeutka dziecięca</span>
+                        <span class="credential-tag">Nauczycielka klas I-III</span>
+                        <span class="credential-tag">10 lat doświadczenia</span>
+                        <span class="credential-tag">Autorka SENSI BODY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial section">
+        <div class="container">
+            <div class="testimonial-card animate-on-scroll">
+                <p class="testimonial-text">Po warsztacie SENSI BODY zupełnie zmieniło się moje podejście do trudnych emocji u dzieci. Zamiast mówić "uspokój się", teraz proponuję konkretne ćwiczenie. Dzieci same zaczynają sięgać po karty, gdy czują, że potrzebują pomocy. To działa!</p>
+                <p class="testimonial-author">Anna K.</p>
+                <p class="testimonial-role">Nauczycielka klas I-III, Szkoła Podstawowa w Katowicach</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing section" id="pricing">
+        <div class="container">
+            <div class="pricing-header animate-on-scroll">
+                <h2>Wybierz <span>swoją opcję</span></h2>
+                <p>Marzec 2026 · Stacjonarnie w Twojej placówce · Grupa 10-15 osób</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card featured animate-on-scroll">
+                    <div class="pricing-label">Zapis indywidualny</div>
+                    <div class="pricing-price">179 <span>PLN</span></div>
+                    <div class="pricing-original">Cena regularna: 299 PLN</div>
+                    <div class="pricing-period">Cena early bird – tylko do końca lutego</div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            6 godzin praktycznego warsztatu
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Komplet materiałów do pobrania
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Certyfikat ukończenia
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Dostęp do filmików z QR kodami
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Gotowe scenariusze zajęć
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openModal('individual')">
+                        Rezerwuję miejsce
+                    </button>
+                </div>
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-label">Dla szkoły / instytucji</div>
+                    <div class="pricing-price">Indywidualnie</div>
+                    <div class="pricing-period">Warsztat dla całej rady pedagogicznej</div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Wszystko z opcji indywidualnej
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Dojazd do placówki (cała Polska)
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Elastyczny termin
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Faktura dla instytucji
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Wycena dostosowana do potrzeb
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="openModal('b2b')">
+                        Zapytaj o ofertę
+                    </button>
+                </div>
+            </div>
+            <div class="workshop-details animate-on-scroll">
+                <h3>Szczegóły warsztatu</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        <strong>6 godzin</strong>
+                        <span>Czas trwania</span>
+                    </div>
+                    <div class="detail-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 010 7.75"/>
+                        </svg>
+                        <strong>10-15 osób</strong>
+                        <span>Wielkość grupy</span>
+                    </div>
+                    <div class="detail-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <strong>Marzec 2026</strong>
+                        <span>Termin</span>
+                    </div>
+                    <div class="detail-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <strong>Cała Polska</strong>
+                        <span>Dojazd do placówki</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust">
+        <div class="container">
+            <div class="trust-content">
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>Bezpieczna płatność</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                    <span>Gwarancja satysfakcji</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0110 0v4"/>
+                    </svg>
+                    <span>Twoje dane są bezpieczne</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-eu">
+                <div class="footer-eu-flag">★</div>
+                <p>Projekt SENSI BODY jest testowany w ramach programu <strong>WŁĄCZ POPOJUTRZE!</strong> – inicjatywy finansowanej ze środków Unii Europejskiej, wspierającej innowacje społeczne w obszarze edukacji i zdrowia dzieci.</p>
+            </div>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SENSI BODY</h3>
+                    <p>Emocje przez ruch. Program łączący fizjoterapię dziecięcą z edukacją emocjonalną dla dzieci w wieku przedszkolnym i wczesnoszkolnym.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Kontakt</h4>
+                    <a href="mailto:kontakt@sensibody.pl">kontakt@sensibody.pl</a>
+                    <a href="tel:+48123456789">+48 123 456 789</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Informacje</h4>
+                    <a href="#">Polityka prywatności</a>
+                    <a href="#">Regulamin</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 SENSI BODY. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal - Individual Registration -->
+    <div class="modal" id="modal-individual">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('individual')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <h2>Zarezerwuj miejsce</h2>
+            <p class="modal-subtitle">Zapis na warsztat SENSI BODY · 179 PLN (early bird)</p>
+            <form id="form-individual" onsubmit="handleSubmit(event, 'individual')">
+                <div class="form-group">
+                    <label for="ind-name">Imię i nazwisko *</label>
+                    <input type="text" id="ind-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="ind-email">Email *</label>
+                    <input type="email" id="ind-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="ind-phone">Telefon</label>
+                    <input type="tel" id="ind-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="ind-role">Kim jesteś? *</label>
+                    <select id="ind-role" name="role" required>
+                        <option value="">Wybierz...</option>
+                        <option value="teacher-early">Nauczyciel/ka klas I-III</option>
+                        <option value="teacher-preschool">Nauczyciel/ka przedszkola</option>
+                        <option value="pedagogue">Pedagog/Psycholog szkolny</option>
+                        <option value="therapist">Terapeuta (SI, pedagog specjalny)</option>
+                        <option value="other">Inny specjalista</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ind-city">Preferowane miasto/region</label>
+                    <input type="text" id="ind-city" name="city" placeholder="np. Katowice, Śląsk">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Przejdź do płatności
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal - B2B Registration -->
+    <div class="modal" id="modal-b2b">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('b2b')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <h2>Zapytaj o ofertę</h2>
+            <p class="modal-subtitle">Warsztat SENSI BODY dla Twojej placówki</p>
+            <form id="form-b2b" onsubmit="handleSubmit(event, 'b2b')">
+                <div class="form-group">
+                    <label for="b2b-institution">Nazwa placówki *</label>
+                    <input type="text" id="b2b-institution" name="institution" required>
+                </div>
+                <div class="form-group">
+                    <label for="b2b-name">Osoba kontaktowa *</label>
+                    <input type="text" id="b2b-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="b2b-email">Email *</label>
+                    <input type="email" id="b2b-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="b2b-phone">Telefon *</label>
+                    <input type="tel" id="b2b-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="b2b-city">Miasto / Województwo *</label>
+                    <input type="text" id="b2b-city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="b2b-participants">Liczba uczestników</label>
+                    <select id="b2b-participants" name="participants">
+                        <option value="">Wybierz...</option>
+                        <option value="10-15">10-15 osób</option>
+                        <option value="16-25">16-25 osób</option>
+                        <option value="26+">Powyżej 25 osób</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="b2b-date">Preferowany termin</label>
+                    <input type="text" id="b2b-date" name="preferred_date" placeholder="np. marzec 2026, po 15:00">
+                </div>
+                <div class="form-group">
+                    <label for="b2b-message">Dodatkowe informacje</label>
+                    <textarea id="b2b-message" name="message" placeholder="Opisz potrzeby placówki, pytania..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Wyślij zapytanie
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Modal functions
+        function openModal(type) {
+            document.getElementById(`modal-${type}`).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(type) {
+            document.getElementById(`modal-${type}`).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Form submission
+        function handleSubmit(event, type) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            console.log(`Form ${type} submitted:`, data);
+            
+            // Here you would typically send the data to your backend
+            // For now, we'll show a success message
+            
+            if (type === 'individual') {
+                alert('Dziękujemy za rezerwację! Za chwilę przekierujemy Cię do płatności.\n\n(W wersji produkcyjnej tutaj nastąpi integracja z systemem płatności)');
+            } else {
+                alert('Dziękujemy za zapytanie! Skontaktujemy się z Tobą w ciągu 2 dni roboczych.');
+            }
+            
+            closeModal(type);
+            form.reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Account for fixed nav
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
